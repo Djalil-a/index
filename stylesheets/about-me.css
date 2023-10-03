@@ -1,57 +1,101 @@
 html, body{
   margin: 0;
   padding: 0;
-  height: 1183px;
-  background-image: linear-gradient(to top, #00b3aa, #000000);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  min-height: 100vh;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
-.separated{
- height: 100%;
- width: 100%;
- display: flex;
- flex-direction: column;
-}
-
-.head-bar{
+header{
   background-color: rgb(31, 40, 51);
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
   border-bottom: solid 1px rgb(102, 252, 241);
   z-index: 3;
-  position: fixed;
   height : 70px;
+  width: 100%;
 }
 
-.left-section{
+.L-side{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-left: 15px;
 }
-
-.home-page{
+.L-side .img{
+color: white;
+font-size: 40px;
+font-weight: bold;
+margin: 0 5px;
+}
+.Current{
   font-weight: 600;
   font-size: 28px;
-  color: rgb(255, 255, 255);
-  margin-left: 5px;
+  color: white;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  margin-top: 5px;
 }
-.middle-section{
+
+
+
+.M-side{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-wrap: nowrap;
+  height: 70px;
 }
 
-.home-link, .about-link, .goals-link{
+.M-side input{
+  display: flex;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  display: none;
+  z-index: 10;
+  opacity: 0;
+  cursor: pointer;
+}
+#menu{
+  flex-direction: column;
+  display: none;
+}
+.M-side span{
+  display: inline-block;
+  background-color: white;
+  height: 7px;
+  width: 35px;
+  margin: 1.5px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.M-side input:checked ~ #menu span:nth-child(1){
+  transform: rotate(-45deg);
+  top: 10px;
+}
+.M-side input:checked ~ #menu span:nth-child(2){
+  opacity: 0;
+}
+.M-side input:checked ~ #menu span:nth-child(3){
+  transform: rotate(45deg);
+  bottom: 10px;
+}
+
+.buttons{  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.buttons a{
   border: solid 2px rgb(102, 252, 241);
   background-color: rgb(15, 19, 24);
   color: white;
@@ -65,122 +109,173 @@ html, body{
   height: 27px;
   width: 80px;
 }
-.home-link:hover, .about-link:hover, .goals-link:hover {
+.buttons a:hover {
   box-shadow: 0 0 10px 3px rgb(0, 238, 255);
   background-color: rgb(30, 169, 187);
   cursor: pointer;
 }
 
+#I{
+  background-color: transparent;
+  height: 20px; 
+  width: 20px; 
+  margin-right: 6px; 
+  padding: 3px;
+}
+#A{
+  padding-right: 8px; 
+  font-size: 22px;
+}
+
+#G{
+  background-color: transparent; 
+  height: 22px; 
+  width: 30px; ; 
+  padding: 2px; 
+  margin-right:0px; 
+  margin-left: -5px;
+}
 
 
-.right-section{
+.R-side{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-right: 15px;
 }
-
-.Contact-button{
+.R-side a{
   color: white;
   background-color: rgb(15, 19, 24);
-  padding: 10px ;
+  padding: 12px ;
   border-color: rgb(102, 252, 241);
-  font-size: 15px;
-  border-radius: 30px;
+  font-size: 16px;
+  border-radius: 50%;
   border: solid 1px cyan;
   white-space: nowrap;
-}
-.Contact-button:hover{
   cursor: pointer;
+  text-decoration: none;
+}
+.R-side a:hover{
   color: rgb(15, 19, 24);
   background-color: white;
   box-shadow: 0 0 6px 2px cyan;
 }
 
 
-.centre{
-  width: 1000px;
+
+main{
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-self: center;
   align-items: center;
-  padding: 0px;
-  flex: 1;
-  margin-top: 61px;
+  background-image: linear-gradient(to top, #00b3aa, rgb(31, 40, 51))
 }
-
-h1{
-  font-size: 120px;
+.mid{
+  flex: 1;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+#title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title{
+  font-size: 140px;
   white-space: nowrap;
-  line-height: 84px;
-  margin-top: 80px;
-  margin-bottom: 35px;
-  color: rgb(0, 255, 255);
+  padding: 0;
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  animation: rgb 10s linear infinite forwards ;
+  color: red;
 }
 
-
-.content{
-  width: 100%;
-  color: white;
-  font-size: 23.5px;
+#content{
   flex: 1;
+  display: flex;
+  flex-direction: column;
   background: rgba(31, 40, 51, 0.5);
-  backdrop-filter: blur(10px);
+  padding-bottom: 50px;
+}
+
+#content h2{
+  color: cyan;
+  font-size: 23.5px;
   margin: 0;
   padding: 28px;
   display: flex;
   flex-direction: column;
 }
 
-p{
+#content p{
+  color: white;
+  font-size: 23.5px;
   margin: 0;
-  padding: 0;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
 }
 
-.footer{
-  bottom: 0;
-  left: 0;
-  right: 0;
+
+
+
+footer{
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  height: max-content;
+  width: 100%;
   border-top: solid 1px cyan;
-  background: rgba(13, 16, 19, 0.8);
-  backdrop-filter: blur(20px);
-
-}
-
-.Feedback{
-  border: solid 1px cyan;
-  height: max;
-  width: 260px;
-  background-color: white;
-  padding: 10px;
-  padding-bottom: 20px;
-  background: rgb(13, 16, 19, 0.1); /*rgba(6, 7, 8, 0.9)*/
-  backdrop-filter: blur(20px);
-}
-
-.Feedback-title{
-  font-size: larger;
-  font-weight: bold;
-  color: rgb(30, 255, 0);
+  background: rgba(31, 40, 51);
   margin: 0;
-}
-.Feedback-text{
-  padding: 20px 0;  
-  margin: 0;
-  color: white;
-}
-    
-input{
-  background-color: white;
-  border: cyan solid 1px;
   padding: 0;
-  margin: 0;
-  width: 200px;
-  height: 20px;
+}
+footer p{
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 30px 0;
+  padding: 0;
+  text-wrap: nowrap;
+}
+
+
+
+
+
+@media screen and (max-width:900px) {
+
+  .mid{
+  width: 100%;
+}
+#content{
+  flex-direction: column;
+  align-items: center;
+}
+.title{
+  font-size: 15vw;
+}
+.M-side input{
+  display: block;
+}
+#menu{
+  display: flex;
+}
+.buttons{
+  display: none;
+}
+
+.M-side input:checked ~ .buttons{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 71px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 0.7);
+}
 }
