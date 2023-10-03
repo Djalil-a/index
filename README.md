@@ -1,1 +1,2 @@
-THis one is created after 10 days of starting learning, started: 27/08/23, posted: 05/09/23.
+1st version of the website: 05/09/23.
+2nd version of the website: 03/10/23.
